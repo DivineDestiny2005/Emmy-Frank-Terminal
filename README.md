@@ -122,8 +122,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Contact
 
 For any questions or support, please contact:
-- Email: info@globalportterminals.com
-- Phone: +1 (555) 123-4567
+- Email: info@emmyfrankterminal.com
+- Phone: +234 (0) 802-5758-575
 
 ## Acknowledgments
 
