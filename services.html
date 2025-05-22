@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Emmy Frank Terminals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .services-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/operateur-terminal-conteneurs-marchandise-1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .services-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .services-intro {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .services-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--dark-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 80px 0;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 40px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .service-icon i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .service-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Include the same top bar and navigation as index.html -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +1 (555) 123-4567</span>
+                <span><i class="fas fa-envelope"></i> info@emmyfrankterminals.com</span>
+            </div>
+            <div class="top-bar-right">
+                <select class="language-selector">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <!-- Include the same navigation as index.html -->
+    </nav>
+
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Comprehensive terminal solutions for global trade</p>
+        </div>
+    </section>
+
+    <!-- Services Intro -->
+    <section class="services-intro">
+        <div class="container">
+            <p>We provide a comprehensive range of port terminal services designed to meet the needs of global shipping lines, cargo owners, and logistics providers. Our state-of-the-art facilities and experienced team ensure efficient, safe, and reliable operations.</p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-grid">
+        <div class="container">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-ship"></i>
+                </div>
+                <h3>Container Handling</h3>
+                <p>Efficient container handling services for all vessel sizes</p>
+                <div class="service-features">
+                    <ul>
+                        <li>Automated stacking systems</li>
+                        <li>24/7 operations</li>
+                        <li>Real-time tracking</li>
+                        <li>Customs clearance support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>Intermodal Services</h3>
+                <p>Seamless connection between sea and land transport</p>
+                <div class="service-features">
+                    <ul>
+                        <li>Rail connectivity</li>
+                        <li>Truck gate operations</li>
+                        <li>Barge services</li>
+                        <li>Cross-docking facilities</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-warehouse"></i>
+                </div>
+                <h3>Storage Solutions</h3>
+                <p>Flexible storage options for various cargo types</p>
+                <div class="service-features">
+                    <ul>
+                        <li>Container yard storage</li>
+                        <li>Cold storage facilities</li>
+                        <li>Bulk cargo storage</li>
+                        <li>Warehouse space</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Equipment Maintenance</h3>
+                <p>Comprehensive maintenance services for all equipment</p>
+                <div class="service-features">
+                    <ul>
+                        <li>Preventive maintenance</li>
+                        <li>24/7 repair services</li>
+                        <li>Equipment rental</li>
+                        <li>Technical support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Value-Added Services</h3>
+                <p>Additional services to enhance your operations</p>
+                <div class="service-features">
+                    <ul>
+                        <li>Cargo inspection</li>
+                        <li>Container repair</li>
+                        <li>Documentation services</li>
+                        <li>Customs clearance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Green Solutions</h3>
+                <p>Environmentally conscious terminal operations</p>
+                <div class="service-features">
+                    <ul>
+                        <li>Electric equipment</li>
+                        <li>Solar power systems</li>
+                        <li>Waste management</li>
+                        <li>Carbon footprint reduction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Optimize Your Operations?</h2>
+            <p>Contact us today to discuss how our services can benefit your business</p>
+            <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Include the same footer as index.html -->
+    <footer class="main-footer">
+        <!-- Footer content -->
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

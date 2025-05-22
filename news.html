@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Media - Emmy Frank Terminals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .news-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/imagempost.png');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .news-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .news-filters {
+            background-color: var(--light-gray);
+            padding: 20px 0;
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: none;
+            background-color: var(--white);
+            color: var(--text-color);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 80px 0;
+        }
+
+        .news-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .news-category {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .news-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .news-content p {
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        .media-resources {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .resource-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .resource-card p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .page-btn {
+            padding: 8px 15px;
+            border: 1px solid var(--primary-color);
+            background-color: var(--white);
+            color: var(--primary-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .page-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Include the same top bar and navigation as index.html -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +1 (555) 123-4567</span>
+                <span><i class="fas fa-envelope"></i> info@globalportterminals.com</span>
+            </div>
+            <div class="top-bar-right">
+                <select class="language-selector">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <!-- Include the same navigation as index.html -->
+    </nav>
+
+    <!-- News Hero Section -->
+    <section class="news-hero">
+        <div class="container">
+            <h1>News & Media</h1>
+            <p>Latest updates and media resources</p>
+        </div>
+    </section>
+
+    <!-- News Filters -->
+    <div class="news-filters">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active">All News</button>
+                <button class="filter-btn">Press Releases</button>
+                <button class="filter-btn">Company News</button>
+                <button class="filter-btn">Industry Updates</button>
+                <button class="filter-btn">Sustainability</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Grid -->
+    <section class="news-grid">
+        <div class="container">
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="images/operateur-terminal-conteneurs-marchandise-1.jpg" alt="Terminal Expansion">
+                </div>
+                <div class="news-content">
+                    <div class="news-meta">
+                        <span class="news-category">Press Release</span>
+                        <span class="news-date">Feb 15, 2024</span>
+                    </div>
+                    <h3>Major Terminal Expansion Announced in Singapore</h3>
+                    <p>Emmy Frank Terminals announces a significant expansion of its Singapore facility to meet growing demand in the Asia-Pacific region.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="images/Apapa-port.jpg" alt="Sustainability Initiative">
+                </div>
+                <div class="news-content">
+                    <div class="news-meta">
+                        <span class="news-category">Sustainability</span>
+                        <span class="news-date">Feb 10, 2024</span>
+                    </div>
+                    <h3>New Sustainability Initiative Launched</h3>
+                    <p>Our company commits to carbon neutrality by 2030 with the launch of a comprehensive sustainability program.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="images/operateur-terminal-conteneurs-marchandise-1.jpg" alt="Technology Innovation">
+                </div>
+                <div class="news-content">
+                    <div class="news-meta">
+                        <span class="news-category">Technology</span>
+                        <span class="news-date">Feb 5, 2024</span>
+                    </div>
+                    <h3>Automation Technology Implementation</h3>
+                    <p>Emmy Frank Terminals implements cutting-edge automation technology to enhance operational efficiency.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Resources -->
+    <section class="media-resources">
+        <div class="container">
+            <h2>Media Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Photo Gallery</h3>
+                    <p>High-resolution images of our terminals and operations</p>
+                    <a href="#" class="btn btn-secondary">View Gallery</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Library</h3>
+                    <p>Corporate videos and terminal operations footage</p>
+                    <a href="#" class="btn btn-secondary">Watch Videos</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Press Kit</h3>
+                    <p>Company information and media contacts</p>
+                    <a href="#" class="btn btn-secondary">Download</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>Press Releases</h3>
+                    <p>Latest company announcements and news</p>
+                    <a href="#" class="btn btn-secondary">View All</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">Next <i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Include the same footer as index.html -->
+    <footer class="main-footer">
+        <!-- Footer content -->
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

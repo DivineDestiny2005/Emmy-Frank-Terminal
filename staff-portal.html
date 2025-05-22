@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Portal - Emmy Frank Terminals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Staff Portal Specific Styles */
+        .portal-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/imagempost.png');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .portal-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .login-section {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .login-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .login-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .sop-section {
+            display: none;
+            margin-top: 40px;
+        }
+
+        .sop-section.active {
+            display: block;
+        }
+
+        .sop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .sop-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: var(--transition);
+        }
+
+        .sop-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .sop-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .sop-card .meta {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .download-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        .error-message {
+            color: #dc3545;
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .sop-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Include the same top bar and navigation as index.html -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +1 (555) 123-4567</span>
+                <span><i class="fas fa-envelope"></i> info@emmyfrankterminals.com</span>
+            </div>
+            <div class="top-bar-right">
+                <select class="language-selector">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <!-- Include the same navigation as index.html -->
+    </nav>
+
+    <!-- Portal Hero Section -->
+    <section class="portal-hero">
+        <div class="container">
+            <h1>Staff Portal</h1>
+            <p>Access company resources and SOP documents</p>
+        </div>
+    </section>
+
+    <!-- Portal Content -->
+    <div class="portal-container">
+        <!-- Login Section -->
+        <div class="login-section" id="loginSection">
+            <h2>Staff Login</h2>
+            <div class="login-form">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="staffId">Staff ID</label>
+                        <input type="text" id="staffId" name="staffId" required placeholder="Enter your staff ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="login-btn">Login</button>
+                    <div class="error-message" id="errorMessage"></div>
+                </form>
+            </div>
+        </div>
+
+        <!-- SOP Section (Hidden until login) -->
+        <div class="sop-section" id="sopSection">
+            <h2>Standard Operating Procedures</h2>
+            <div class="sop-grid">
+                <div class="sop-card">
+                    <h3>Container Handling Procedures</h3>
+                    <div class="meta">
+                        <span>Version 2.1</span> • <span>Updated: Jan 15, 2024</span>
+                    </div>
+                    <p>Comprehensive guide for safe and efficient container handling operations.</p>
+                    <a href="#" class="download-btn">Download PDF</a>
+                </div>
+                <div class="sop-card">
+                    <h3>Safety Protocols</h3>
+                    <div class="meta">
+                        <span>Version 3.0</span> • <span>Updated: Feb 1, 2024</span>
+                    </div>
+                    <p>Detailed safety procedures and emergency response protocols.</p>
+                    <a href="#" class="download-btn">Download PDF</a>
+                </div>
+                <div class="sop-card">
+                    <h3>Equipment Maintenance</h3>
+                    <div class="meta">
+                        <span>Version 1.5</span> • <span>Updated: Jan 20, 2024</span>
+                    </div>
+                    <p>Maintenance schedules and procedures for terminal equipment.</p>
+                    <a href="#" class="download-btn">Download PDF</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include the same footer as index.html -->
+    <footer class="main-footer">
+        <!-- Footer content -->
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Staff Portal Specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const loginSection = document.getElementById('loginSection');
+            const sopSection = document.getElementById('sopSection');
+            const errorMessage = document.getElementById('errorMessage');
+
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const staffId = document.getElementById('staffId').value.trim();
+                const password = document.getElementById('password').value;
+                
+                // Check if fields are not empty
+                if (!staffId || !password) {
+                    errorMessage.textContent = 'Please enter both Staff ID and password';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+                
+                // For demo purposes, accept any non-empty staff ID and password
+                window.location.href = 'staff-dashboard.html';
+            });
+        });
+    </script>
+</body>
+</html> 

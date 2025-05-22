@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Emmy Frank Terminals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .careers-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/careers-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .careers-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .careers-intro {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .careers-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--dark-gray);
+        }
+
+        .benefits-section {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .jobs-section {
+            padding: 80px 0;
+        }
+
+        .job-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: none;
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .job-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .job-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            transition: var(--transition);
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .job-title h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .job-location {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        .job-type {
+            background-color: var(--light-gray);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .job-description {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+
+        .job-requirements {
+            margin-bottom: 20px;
+        }
+
+        .job-requirements h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .job-requirements ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-requirements li {
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .job-requirements li:before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .apply-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        .application-process {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: bold;
+        }
+
+        .process-step h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            color: var(--dark-gray);
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .job-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Include the same top bar and navigation as index.html -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +234 (0) 803-4567-576</span>
+                <span><i class="fas fa-envelope"></i> info@emmyfrankterminal.com</span>
+            </div>
+            <div class="top-bar-right">
+                <select class="language-selector">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <!-- Include the same navigation as index.html -->
+    </nav>
+
+    <!-- Careers Hero Section -->
+    <section class="careers-hero">
+        <div class="container">
+            <h1>Join Our Team</h1>
+            <p>Build your career with a global leader in port operations</p>
+        </div>
+    </section>
+
+    <!-- Careers Intro -->
+    <section class="careers-intro">
+        <div class="container">
+            <p>At Emmy Frank Terminals, we're always looking for talented individuals who share our passion for excellence and innovation. Join our diverse team and be part of shaping the future of global trade.</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Why Join Us</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Professional Growth</h3>
+                    <p>Continuous learning and development opportunities</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Opportunities</h3>
+                    <p>Work across our international network of terminals</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Health & Wellness</h3>
+                    <p>Comprehensive health benefits and wellness programs</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Work-Life Balance</h3>
+                    <p>Flexible work arrangements and paid time off</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs-section">
+        <div class="container">
+            <h2>Open Positions</h2>
+            <div class="job-filters">
+                <button class="filter-btn active">All Positions</button>
+                <button class="filter-btn">Operations</button>
+                <button class="filter-btn">Engineering</button>
+                <button class="filter-btn">Management</button>
+                <button class="filter-btn">IT & Technology</button>
+            </div>
+
+            <div class="job-list">
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Terminal Operations Manager</h3>
+                            <div class="job-location">Singapore</div>
+                        </div>
+                        <div class="job-type">Full-time</div>
+                    </div>
+                    <div class="job-description">
+                        <p>Lead and manage terminal operations to ensure efficient and safe handling of cargo.</p>
+                    </div>
+                    <div class="job-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>10+ years of port operations experience</li>
+                            <li>Strong leadership and management skills</li>
+                            <li>Bachelor's degree in related field</li>
+                            <li>Excellent communication skills</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="apply-btn">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Automation Engineer</h3>
+                            <div class="job-location">Rotterdam</div>
+                        </div>
+                        <div class="job-type">Full-time</div>
+                    </div>
+                    <div class="job-description">
+                        <p>Design and implement automation solutions for terminal operations.</p>
+                    </div>
+                    <div class="job-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>5+ years of automation experience</li>
+                            <li>Proficiency in PLC programming</li>
+                            <li>Experience with industrial automation</li>
+                            <li>Strong problem-solving skills</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="apply-btn">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section class="application-process">
+        <div class="container">
+            <h2>Application Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Submit Application</h3>
+                    <p>Complete the online application form and upload your resume</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Initial Screening</h3>
+                    <p>Our recruitment team reviews your application</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Interviews</h3>
+                    <p>Meet with our team to discuss the role and your experience</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Offer & Onboarding</h3>
+                    <p>Receive an offer and begin your journey with us</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include the same footer as index.html -->
+    <footer class="main-footer">
+        <!-- Footer content -->
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
